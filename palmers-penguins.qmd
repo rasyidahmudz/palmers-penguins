@@ -1,0 +1,69 @@
+---
+title: "Palmer's Penguins"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r}
+penguins
+dim(penguins)
+summary(penguins)
+```
+
+#### *The distribution of a single trait*
+
+Q: What is the lowest and highest bill lengths do penguins in this dataset have? Do different species have different bill lengths? How much do they overlap?
+
+```{r}
+#| warning: false
+penguins %>%
+  ggplot() + 
+  geom_density(mapping = aes(x=bill_length_mm, fill=species), alpha=0.5)
+```
+
+```{r}
+#| warning: false
+penguins %>%
+  ggplot(mapping = aes(x=bill_length_mm, fill=species)) +
+  geom_histogram() +
+  facet_wrap(~species, nrow=3) +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+#### *The relationship between multiple traits*
+
+Q: What is the relationship between body mass and flipper length in penguins in this dataset? Does this relationship differ between species? Given the same body mass, which species of penguins tend to have the longest flippers?
+
+```{r}
+#| warning: false
+penguins %>%
+  ggplot(mapping = aes(x=body_mass_g, y=flipper_length_mm, color=species)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+
+#### ***The level of sexual dimorphism***
+
+Q: What traits are sexually dimorphic in the `penguins` dataset? Is the level of sexual dimorphism the same in all three penguin species?
+
+```{r}
+#| warning: false
+penguins %>%
+  ggplot(mapping = aes(x=bill_length_mm, y=flipper_length_mm, color=sex)) +
+  geom_point() +
+  facet_wrap(~ species)
+```
+
+```{r}
+#| warning: false
+penguins %>%
+  ggplot(mapping = aes(x=body_mass_g, y=bill_depth_mm, color=sex)) +
+  geom_point() +
+  facet_wrap(~ species)
+```
