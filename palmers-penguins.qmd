@@ -5,17 +5,19 @@ editor: visual
 ---
 
 ```{r}
+#| warning: false
 library(tidyverse)
 library(palmerpenguins)
 ```
 
 ```{r}
+#| warning: false
 penguins
 dim(penguins)
 summary(penguins)
 ```
 
-#### *The distribution of a single trait*
+### *The distribution of a single trait*
 
 Q: What is the lowest and highest bill lengths do penguins in this dataset have? Do different species have different bill lengths? How much do they overlap?
 
@@ -36,7 +38,7 @@ penguins %>%
   theme(legend.position = "none")
 ```
 
-#### *The relationship between multiple traits*
+### *The relationship between multiple traits*
 
 Q: What is the relationship between body mass and flipper length in penguins in this dataset? Does this relationship differ between species? Given the same body mass, which species of penguins tend to have the longest flippers?
 
@@ -48,7 +50,7 @@ penguins %>%
   geom_smooth(method="lm")
 ```
 
-#### ***The level of sexual dimorphism***
+### ***The level of sexual dimorphism***
 
 Q: What traits are sexually dimorphic in the `penguins` dataset? Is the level of sexual dimorphism the same in all three penguin species?
 

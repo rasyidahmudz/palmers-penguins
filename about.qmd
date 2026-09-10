@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+This is a webpage with Lab 3’s exercises on Palmer's penguins.

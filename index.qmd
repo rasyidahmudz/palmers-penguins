@@ -1,7 +1,7 @@
 ---
-title: "palmers-penguins"
+title: "Palmer's Penguins"
 ---
 
-This is a Quarto website.
+This is a webpage with Lab 3's exercises.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+By: Rasyidah Mudzzaffar
